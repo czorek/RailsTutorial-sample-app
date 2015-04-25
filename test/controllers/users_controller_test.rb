@@ -55,6 +55,6 @@ class UsersControllerTest < ActionController::TestCase
     assert_no_difference 'User.count' do
       delete :destroy, id: @user
     end
-    assert_no_difference root_url
+    assert_redirected_to root_url
   end
 end
