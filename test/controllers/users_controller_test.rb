@@ -12,6 +12,32 @@ class UsersControllerTest < ActionController::TestCase
     assert_redirected_to login_url
   end
 
+  test "should index activated user" do
+    log_in_as(@user)
+    get :index
+    assert_select "a[href=?]", user_path(@user)
+    assert_select "a[href=?]", user_path(@other_user)
+  end
+
+  test "should not index deactivated users" do
+    @other_user.toggle!(:activated)
+    log_in_as(@user)
+    get :index
+    assert_select "a[href=?]", user_path(@other_user), false
+  end
+
+  test "should redirect show when not activated" do
+    @user.toggle!(:activated)
+    get :show, id: @user
+    assert_redirected_to root_url
+  end
+
+  test "should show user when activated" do
+    log_in_as(@user)
+    get :show, id: @user
+    assert_response :success
+  end
+
   test "should get new" do
     get :new
     assert_response :success
