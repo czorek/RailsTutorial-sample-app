@@ -1,0 +1,46 @@
+orange:
+  content: "I just ate a banana."
+  created_at: <%= 10.minutes.ago %>
+  user: example
+
+tau_manifesto:
+  content: "Check this out."
+  created_at: <%= 3.years.ago %>
+  user: example
+
+cat_video:
+  content: "Look at cats"
+  created_at: <%= 2.hours.ago %>
+  user: example
+
+most_recent:
+  content: MyText
+  created_at: <%= Time.zone.now %>
+  user: example
+
+<% 30.times do |n| %>
+micropost_<%= n %>:
+  content: <%= Faker::Lorem.sentence(5) %>
+  created_at: <%= 42.days.ago %>
+  user: example
+<% end %>
+
+ants:
+  content: "That's how you get ants!"
+  created_at: <%= 2.years.ago %>
+  user: archer
+
+zone:
+  content: "Danger zone!"
+  created_at: <%= 3.days.ago %>
+  user: archer
+
+tone:
+  content: "Tararara"
+  created_at: <%= 10.minutes.ago %>
+  user: lana
+
+van:
+  content: "Awesome van"
+  created_at: <%= 4.hours.ago %>
+  user: lana
