@@ -17,3 +17,6 @@
 /tmp
 
 /spring/*.pid
+
+# ignored uploaded images
+/public/uploads
